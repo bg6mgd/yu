@@ -1,2 +1,0 @@
-可以通过如下命令进行代码合并【注：pull=fetch+merge]
-git pull --rebase origin master
