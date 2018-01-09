@@ -1,0 +1,162 @@
+python3 deque（双向队列）
+创建双向队列
+
+import collections
+d = collections.deque()
+append(往右边添加一个元素)
+
+复制代码
+import collections
+d = collections.deque()
+d.append(1)
+d.append(2)
+print(d)
+
+#输出：deque([1, 2])
+复制代码
+appendleft（往左边添加一个元素）
+
+复制代码
+import collections
+d = collections.deque()
+d.append(1)
+d.appendleft(2)
+print(d)
+
+#输出：deque([2, 1])
+复制代码
+clear(清空队列)
+
+复制代码
+import collections
+d = collections.deque()
+d.append(1)
+d.clear()
+print(d)
+
+#输出：deque([])
+复制代码
+copy(浅拷贝)
+
+复制代码
+import collections
+d = collections.deque()
+d.append(1)
+new_d = d.copy()
+print(new_d)
+
+#输出：deque([1])
+复制代码
+count(返回指定元素的出现次数)
+
+复制代码
+import collections
+d = collections.deque()
+d.append(1)
+d.append(1)
+print(d.count(1))
+
+#输出：2
+复制代码
+extend(从队列右边扩展一个列表的元素)
+
+复制代码
+import collections
+d = collections.deque()
+d.append(1)
+d.extend([3,4,5])
+print(d)
+
+#输出：deque([1, 3, 4, 5])
+复制代码
+extendleft(从队列左边扩展一个列表的元素)
+
+复制代码
+import collections
+d = collections.deque()
+d.append(1)
+d.extendleft([3,4,5])
+print(d)
+#
+# #输出：deque([5, 4, 3, 1])
+复制代码
+index（查找某个元素的索引位置）
+
+复制代码
+import collections
+d = collections.deque()
+d.extend(['a','b','c','d','e'])
+print(d)
+print(d.index('e'))
+print(d.index('c',0,3))  #指定查找区间
+
+#输出：deque(['a', 'b', 'c', 'd', 'e'])
+#     4
+#     2
+复制代码
+insert（在指定位置插入元素）
+
+复制代码
+import collections
+d = collections.deque()
+d.extend(['a','b','c','d','e'])
+d.insert(2,'z')
+print(d)
+
+#输出：deque(['a', 'b', 'z', 'c', 'd', 'e'])
+复制代码
+pop（获取最右边一个元素，并在队列中删除）
+
+复制代码
+import collections
+d = collections.deque()
+d.extend(['a','b','c','d','e'])
+x = d.pop()
+print(x,d)
+
+#输出：e deque(['a', 'b', 'c', 'd'])
+复制代码
+popleft（获取最左边一个元素，并在队列中删除）
+
+复制代码
+import collections
+d = collections.deque()
+d.extend(['a','b','c','d','e'])
+x = d.popleft()
+print(x,d)
+
+#输出：a deque(['b', 'c', 'd', 'e'])
+复制代码
+remove（删除指定元素）
+
+复制代码
+import collections
+d = collections.deque()
+d.extend(['a','b','c','d','e'])
+d.remove('c')
+print(d)
+
+#输出：deque(['a', 'b', 'd', 'e'])
+复制代码
+reverse（队列反转）
+
+复制代码
+import collections
+d = collections.deque()
+d.extend(['a','b','c','d','e'])
+d.reverse()
+print(d)
+
+#输出：deque(['e', 'd', 'c', 'b', 'a'])
+复制代码
+rotate（把右边元素放到左边）
+
+复制代码
+import collections
+d = collections.deque()
+d.extend(['a','b','c','d','e'])
+d.rotate(2)   #指定次数，默认1次
+print(d)
+
+#输出：deque(['d', 'e', 'a', 'b', 'c'])
+复制代码
