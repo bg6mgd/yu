@@ -1,0 +1,33 @@
+开始之前，先停止数据库服务并检查服务状态，我们应该可以看到先前设置的环境变量：
+
+------------- SystemD ------------- 
+# systemctl stop mariadb
+------------- SysVinit -------------
+# /etc/init.d/mysqld stop
+接下来，用 --skip-grant-tables 选项启动服务：
+
+------------- SystemD ------------- 
+# systemctl set-environment MYSQLD_OPTS="--skip-grant-tables"
+# systemctl start mariadb
+# systemctl status mariadb
+------------- SysVinit -------------
+# ctrl d
+
+
+这可以让你不用 root 密码就能连接到数据库（你也许需要切换到另外一个终端上）：
+
+# mysql -u root
+接下来，按照下面列出的步骤来。
+
+MariaDB [(none)]> USE mysql;
+MariaDB [(none)]> UPDATE user SET password=PASSWORD('YourNewPasswordHere') WHERE User='root' AND Host = 'localhost';
+MariaDB [(none)]> FLUSH PRIVILEGES;
+最后，停止服务，取消环境变量设置并再次启动服务：
+
+------------- SystemD ------------- 
+# systemctl stop mariadb
+# systemctl unset-environment MYSQLD_OPTS
+# systemctl start mariadb
+------------- SysVinit -------------
+# /etc/init.d/mysql stop
+# /etc/init.d/mysql start
