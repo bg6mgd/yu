@@ -1,0 +1,4 @@
+mysql -u root -p dbname < filename.sql
+执行上述命令,会提示你输入root账户的密码,密码验证成功后会在dbname这个数据库中执行filename.sql这个脚本。
+filename.sql处填写你的sql文件所在的路径。
+例如：mysql -u root -p dbname < /home/root/news.sql
